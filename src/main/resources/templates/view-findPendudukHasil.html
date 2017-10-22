@@ -29,7 +29,7 @@
 						</tr>
 						<tr>
 							<td><strong>Tempat/Tanggal Lahir</strong></td>
-							<td><p th:text="${penduduk.tempat_lahir}">Tempat Lahir Penduduk</p></td>
+							<td><p th:text="${penduduk.tempat_lahir} + ', ' + ${tanggal_lahir}">Tempat Lahir Penduduk</p></td>
 						</tr>
 						<tr>
 							<td><strong>Alamat</strong></td>
@@ -79,7 +79,7 @@
 				<button><a th:href="'/penduduk/ubah/' + ${penduduk.nik}" > Ubah Data</a></button>
 				<form th:action="'/penduduk?nik='+ ${penduduk.nik}" method="post">
 						<input type="hidden" name="alamat" th:value="${alamat}"></input>
-						<input type="submit" value="Matikan NIK Penduduk"></input>
+						<input type="submit" value="Nonaktifkan"></input>
 				</form>
 		    </div>
 		    <div class="col-sm-2">

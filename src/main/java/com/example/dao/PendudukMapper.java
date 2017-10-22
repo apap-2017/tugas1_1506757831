@@ -82,8 +82,10 @@ public interface PendudukMapper {
 	@Select("select count(*) from penduduk where nik like #{nik}")
 	int countNIK(String nik);
 	
-	@Update("UPDATE penduduk SET nik = #{nik}, nama = #{nama}, tempat_lahir = #{tempat_lahir}, tanggal_lahir = #{tanggal_lahir}, jenis_kelamin = #{jenis_kelamin}, "
-			+ "is_wni = #{is_wni}, id_keluarga = #{id_keluarga}, agama = #{agama}, pekerjaan = #{pekerjaan}, status_perkawinan = #{status_perkawinan}, "
+	@Update("UPDATE penduduk SET nik = #{nik}, nama = #{nama}, tempat_lahir = #{tempat_lahir}, "
+			+ "tanggal_lahir = #{tanggal_lahir}, jenis_kelamin = #{jenis_kelamin}, "
+			+ "is_wni = #{is_wni}, id_keluarga = #{id_keluarga}, agama = #{agama}, pekerjaan = #{pekerjaan}, "
+			+ "status_perkawinan = #{status_perkawinan}, "
 			+ "status_dalam_keluarga = #{status_dalam_keluarga}, golongan_darah = #{golongan_darah} WHERE id = #{id}")
     void updatePenduduk(PendudukModel penduduk);
 	

@@ -74,7 +74,8 @@ public class KeluargaController {
 		String kode_kecamatan = keluargaDAO.getKodeKecamatanByIdKecamatan(id_kecamatan);
 		
 		String dateKeluaran = dateFormat.format(date);
-		dateKeluaran = dateKeluaran.substring(dateKeluaran.length()-2,dateKeluaran.length())  + dateKeluaran.substring(5,7) + dateKeluaran.substring(2,4);
+		dateKeluaran = dateKeluaran.substring(dateKeluaran.length()-2,dateKeluaran.length())  
+				+ dateKeluaran.substring(5,7) + dateKeluaran.substring(2,4);
 		
 		nkk += "" + kode_kecamatan;
 		nkk = nkk.substring(0, nkk.length()-1);
@@ -106,7 +107,8 @@ public class KeluargaController {
     }
 	
 	@RequestMapping(value = "/keluarga/ubah/{nkk}", method = RequestMethod.POST)
-    public String updatePendudukSubmit(Model model, PendudukModel penduduk, @RequestParam(value = "alamat", required = false) String alamat_baru,
+    public String updatePendudukSubmit(Model model, PendudukModel penduduk, 
+    		@RequestParam(value = "alamat", required = false) String alamat_baru,
     		@RequestParam(value = "rt", required = false) String rt,
     		@RequestParam(value = "rw", required = false) String rw,
     		@RequestParam(value = "id_kelurahan", required = false) int id_kelurahan,
