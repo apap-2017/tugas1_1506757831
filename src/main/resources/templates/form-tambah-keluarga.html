@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Add Keluarga</title>
+		<div th:replace="fragments/fragment :: links"></div>
+	</head>
+	<body>
+			<div th:replace="fragments/fragment :: header"></div>
+				<div class="container-fluid text-center">    
+				  <div class="row content">
+				    <div class="col-sm-2">
+				    </div>
+		    <div class="col-sm-8 text-left">
+				<div th:if="${flag == true}">
+            		<h1>Sukses !</h1>
+            		<p th:text="'Keluarga dengan NKK ' + ${nkk} + ' berhasil ditambahkan'">sukses</p>
+        		</div>
+				<h1 class="page-header">Tambah Keluarga</h1>
+				
+					<form action="/keluarga/tambah/" method="post">
+						<div class="form-group">
+						    <label for="alamat">Alamat</label>
+						    <input type="text" class="form-control" id="alamat" name="alamat"></input>
+						</div>
+						<div class="form-group">
+						    <label for="rt">RT</label>
+						    <input type="text" class="form-control" id="rt" name="rt"></input>
+						</div>
+						<div class="form-group">
+						    <label for="rt">RW</label>
+						    <input type="text" class="form-control" id="rw" name="rw"></input>
+						</div>
+						<div class="form-group">
+						    <label for="kelurahan">Kelurahan/Desa</label>
+						    <select class="form-control" name="id_kelurahan">
+  								<option th:each="kelurahan,iterationStatus: ${list_kelurahan}" th:value="${kelurahan.id}" th:text="${kelurahan.nama_kelurahan}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+						    <label for="kecamatan">Kecamatan</label>
+						    <select class="form-control" name="id_kecamatan">
+  								<option th:each="kecamatan,iterationStatus: ${list_kecamatan}" th:value="${kecamatan.id}" th:text="${kecamatan.nama_kecamatan}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+						    <label for="kota">Kota</label>
+						    <select class="form-control" name="id_kota">
+  								<option th:each="kota,iterationStatus: ${list_kota}" th:value="${kota.id}" th:text="${kota.nama_kota}"></option>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-default" name="action" value="simpan">Simpan</button>
+					</form>
+			</div>
+		    <div class="col-sm-2">
+		    </div>
+		  </div>
+		</div>
+	</body>
+</html>
+
